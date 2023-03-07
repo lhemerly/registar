@@ -1,0 +1,90 @@
+import { Component } from '@angular/core'; @Component({ selector: 'app-home',
+template: `
+<mat-carousel [interval]="5000" [loop]="true">
+  <mat-carousel-slide
+    *ngFor="let slide of slides"
+    [image]="slide.image"
+    [overlayColor]="slide.overlayColor"
+    [hideOverlay]="slide.hideOverlay"
+  >
+    <h1>{{ slide.title }}</h1>
+    <p>{{ slide.description }}</p>
+    <button mat-raised-button color="primary">{{ slide.buttonText }}</button>
+  </mat-carousel-slide>
+</mat-carousel>
+
+<section class="section1">
+  <h2>Featured Images</h2>
+  <div class="images-container">
+    <div class="image" *ngFor="let image of images">
+      <img src="{{ image.src }}" alt="{{ image.alt }}" />
+      <div class="overlay">
+        <h3>{{ image.title }}</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section2">
+  <h2>Call to Action</h2>
+  <p>{{ ctaText }}</p>
+  <button mat-raised-button color="primary">{{ ctaButton }}</button>
+</section>
+
+<section class="section3">
+  <h2>User Testimonials</h2>
+  <div class="testimonials-container">
+    <div class="testimonial" *ngFor="let testimonial of testimonials">
+      <div class="testimonial-text">{{ testimonial.text }}</div>
+      <div class="testimonial-author">{{ testimonial.author }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section4">
+  <h2>Contact Us</h2>
+  <p>{{ contactText }}</p>
+  <div class="contact-info">
+    <div class="contact-phone">
+      <mat-icon>phone</mat-icon>
+      <span>{{ phone }}</span>
+    </div>
+    <div class="contact-email">
+      <mat-icon>email</mat-icon>
+      <span>{{ email }}</span>
+    </div>
+    <div class="contact-address">
+      <mat-icon>location_on</mat-icon>
+      <span>{{ address }}</span>
+    </div>
+  </div>
+</section>
+`, styles : [' :host { display: block; } h1, h2, h3, h4, h5, h6 { font-family:
+'Roboto', sans-serif; font-weight: 700; } h1 { font-size: 3rem; } h2 {
+font-size: 2rem; } h3 { font-size: 1.5rem; } p { font-family: 'Roboto',
+sans-serif; font-weight: 400; font-size: 1rem; } mat-carousel { height: 50vh;
+width: 100%; position: relative; } mat-carousel-slide { background-size: cover;
+background-position: center; position: relative; display: flex; flex-direction:
+column; justify-content: center; align-items: center; color: white; text-align:
+center; } mat-carousel-slide .overlay { background-color: rgba(0, 0, 0, 0.4);
+position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex;
+flex-direction: column; justify-content: center; align-items: center; }
+mat-carousel-slide h2 { margin-top: 0; } mat-carousel-slide p { margin-top:
+0.5rem; } mat-carousel-slide button { margin-top: 1rem; } .images-container {
+display: flex; flex-wrap: wrap; justify-content: space-between; margin-top:
+2rem; } .images-container img { width: 48%; margin-bottom: 1rem; }
+.cta-container { margin-top: 2rem; text-align: center; } .cta-container p {
+margin-bottom: 1rem; } .cta-container button { background-color: #2196f3; color:
+white; font-size: 1.2rem; padding: 1rem 2rem; border: none; border-radius: 3px;
+cursor: pointer; } .testimonials-container { margin-top: 2rem; display: flex;
+flex-wrap: wrap; justify-content: space-between; } .testimonial { width: 30%;
+margin-bottom: 1rem; padding: 1rem; border: 1px solid #ccc; border-radius: 5px;
+} .testimonial p { margin: 0; font-style: italic; } .testimonial-author {
+font-weight: 700; margin-top: 0.5rem; } .contact-container { margin-top: 2rem;
+display: flex; flex-wrap: wrap; justify-content: space-between; align-items:
+center; } .contact-container p { margin-bottom: 0.5rem; } .contact-container
+.phone-icon, .contact-container .email-icon, .contact-container .address-icon {
+font-size: 1.5rem; margin-right: 0.5rem; } .contact-container
+.phone-icon::before { content: '\260E'; } .contact-container .email-icon::before
+{ content: '\2709'; } .contact-container .address-icon::before { content:
+'\1F3E0'; }'

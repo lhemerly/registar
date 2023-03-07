@@ -1,0 +1,6 @@
+web3/node_modules/*
+web3/scripts/*
+web3/test/*
+backend/node_modules/*
+web3/hardhat.config.js
+web3/README.md
